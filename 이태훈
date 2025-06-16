@@ -1,0 +1,32 @@
+ 모터 드라이버의 핀 할당
+const int enaPin = 10; // ENA 핀
+const int in1Pin = 9;  // IN1 핀
+const int in2Pin = 8;  // IN2 핀
+
+void setup() {
+  // 핀 초기화//
+  pinMode(enaPin, OUTPUT);
+  pinMode(in1Pin, OUTPUT);
+  pinMode(in2Pin, OUTPUT);
+  
+  // 모터 정지
+  digitalWrite(in1Pin, LOW);
+  digitalWrite(in2Pin, LOW);
+}
+
+void loop() {
+  // 모터를 전진 방향으로 회전
+  digitalWrite(in1Pin, HIGH);
+  digitalWrite(in2Pin, LOW);
+
+ // 모터 속도 설정 (0에서 255까지)
+  analogWrite(enaPin, 150); // 150은 예시로 설정한 값입니다.
+  
+  delay(1000); // 1초간 대기
+  
+  // 모터 정지
+  digitalWrite(in1Pin, LOW);
+  digitalWrite(in2Pin, LOW);
+  
+  delay(1000); // 1초간 대기
+}
